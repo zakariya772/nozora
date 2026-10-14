@@ -70,16 +70,6 @@ const observeHeroSection = new IntersectionObserver((entries)=>{
 
 observeHeroSection.observe(heroSectionContent)
 
-// const observeHeroImage = new IntersectionObserver(entries=>{
-//     const entry = entries[0]
-//     if (entry.isIntersecting){
-//         console.log(entry.target)
-//         entry.target.classList.add("zoom-out")
-//         observeHeroImage.unobserve(entry.target)
-//     }
-// })
-
-observeHeroImage.observe(heroImage)
 
 const observeFeatureText = new IntersectionObserver(entries=>{
     const entry = entries[0]
