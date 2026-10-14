@@ -9,6 +9,7 @@ const sections = document.querySelectorAll("section")
 const navMenu = document.querySelector(".nav-menu")
 const featureSectionText = document.querySelector(".feature-section__text")
 const featureSectionContainer = document.querySelector(".feature-section__container")
+const projectSectionText = document.querySelector(".project-section__text")
 
 hambugger.addEventListener("click", function (e) {
     e.currentTarget.classList.toggle("active");
@@ -69,23 +70,9 @@ const observeHeroSection = new IntersectionObserver((entries)=>{
 })
 
 observeHeroSection.observe(heroSectionContent)
+observeHeroSection.observe(featureSectionText)
+observeHeroSection.observe(projectSectionText)
 
-const observeFeatureText = new IntersectionObserver(entries=>{
-    const entry = entries[0]
-    if (entry.isIntersecting){
-        entry.target.querySelectorAll(":scope > *").forEach((element,index)=>{
-            setTimeout(()=>{
-                element.classList.add("animate-up")
-            },index*150)
-        })
-    }
-},{
-    root:null,
-    threshold:.25,
-    rootMargin:`-${navHeight}px`
-})
-
-observeFeatureText.observe(featureSectionText)
 
 const observeFeatureCard = new IntersectionObserver(entries=>{
     const entry = entries[0]
