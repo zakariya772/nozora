@@ -330,7 +330,8 @@ body {
     padding: 12rem;
 }
 
-.feature-section__text,.project-section__text{
+.feature-section__text,
+.project-section__text {
     display: flex;
     flex-direction: column;
     gap: 4.8rem;
@@ -374,6 +375,7 @@ body {
         transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     transition: transform .3s ease;
 }
+
 
 .feature-section__card:hover {
     transform: translateY(-1rem);
@@ -463,15 +465,28 @@ body {
     overflow: hidden;
 }
 
-.project-section__box img {
+.lazy-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform .3s ease;
+    filter: blur(12px);
+    opacity: .8;
+    transition: filter .4s ease-out, opacity .4s ease-out;
 }
 
-.project-section__box img:hover {
+.lazy-image:hover {
     transform: scale(1.1);
+}
+
+.lazy-image.loaded {
+    filter: blur(0);
+    opacity: 1;
+}
+
+.lazy-image.load-error {
+    filter: blur(0);
+    opacity: 1;
 }
 
 .project-section__box:nth-child(2) {
@@ -570,6 +585,12 @@ body {
     flex: 0 1 40rem;
 }
 
+.about-section__content>* {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(24px);
+}
+
 .about-section__content--badge {
     font-size: 1.6rem;
     text-transform: uppercase;
@@ -603,6 +624,13 @@ body {
     background-color: #ffffff;
     border-radius: 9px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+    opacity: 0;
+    transform: translateY(25px) scale(0.98);
+
+    transition:
+        opacity 0.6s ease-out,
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform .3s ease;
 }
 
 .about-section__stat {
@@ -613,7 +641,11 @@ body {
     align-items: center;
     padding: 1.6rem;
 }
-
+.about-section__stat *{
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(24px);
+}
 .about-section__icon {
     color: var(--color-primary);
     width: 3.2rem;
@@ -771,7 +803,9 @@ body {
     filter: blur(4px);
     transform: translateY(24px);
 }
-.feature-section__text>*,.project-section__text>*{
+
+.hero-section__content>*,.community-section>*,.feature-section__text>*,
+.project-section__text>* {
     opacity: 0;
     filter: blur(4px);
     transform: translateY(24px);
