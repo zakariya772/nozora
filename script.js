@@ -61,12 +61,12 @@ const observeSectionText = new IntersectionObserver((entries)=>{
             element.classList.add("animate-up")
         },index * 150)
         })
-        observeHeroSection.unobserve(entry.target);
+        observeSectionText.unobserve(entry.target);
     }
 },{
     root:null,
     threshold:0,
-    rootMargin:`-${navHeight}px`
+    rootMargin:`-${navHeight}px 0px 0px 0px`
 })
 
 observeSectionText.observe(heroSectionContent)
