@@ -53,7 +53,7 @@ window.addEventListener("resize",updateNavOffset)
 
 const heroSectionContent = document.querySelector(".hero-section__content")
 const navHeight = header.getBoundingClientRect().height
-const observeHeroSection = new IntersectionObserver((entries)=>{
+const observeSectionText = new IntersectionObserver((entries)=>{
     const entry = entries[0]
     if (entry.isIntersecting){
         entry.target.querySelectorAll(":scope > *").forEach((element,index)=>{
@@ -69,9 +69,9 @@ const observeHeroSection = new IntersectionObserver((entries)=>{
     rootMargin:`-${navHeight}px`
 })
 
-observeHeroSection.observe(heroSectionContent)
-observeHeroSection.observe(featureSectionText)
-observeHeroSection.observe(projectSectionText)
+observeSectionText.observe(heroSectionContent)
+observeSectionText.observe(featureSectionText)
+observeSectionText.observe(projectSectionText)
 
 
 const observeFeatureCard = new IntersectionObserver(entries=>{
@@ -83,6 +83,10 @@ const observeFeatureCard = new IntersectionObserver(entries=>{
             },index * 150)
         })
     }
+},{
+    root:null,
+    threshold:.5,
+    rootMargin:`-${navHeight}px`    
 })
 
 observeFeatureCard.observe(featureSectionContainer)
