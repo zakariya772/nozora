@@ -10,9 +10,11 @@ html {
     padding: 0;
     margin: 0;
 }
-:root{
---color-primary: #3b5bdb;
+
+:root {
+    --color-primary: #3b5bdb;
 }
+
 body {
     font-family: "poppins", sans-serif;
     overflow-x: hidden;
@@ -76,7 +78,7 @@ body {
 
 .nav-list__item a:hover:link,
 .nav-list__item a:hover:visited {
-    color:var(--color-primary);
+    color: var(--color-primary);
     background-image: linear-gradient(#ffffff, #ffffff);
     background-size: 100% 2px;
     background-repeat: no-repeat;
@@ -95,7 +97,7 @@ body {
     height: 4rem;
 
     border-radius: 9px;
-    background-color:var(--color-primary);
+    background-color: var(--color-primary);
     font-weight: bold;
     border: none;
     color: #edf2ff;
@@ -147,7 +149,7 @@ body {
     font-weight: 600;
 }
 
- .heading-primary {
+.heading-primary {
     font-size: 3.2rem;
     line-height: 5.4rem;
 }
@@ -207,11 +209,17 @@ body {
     background-size: 100% 2px;
     box-shadow: none;
 }
-    
+
 .hero-section__image {
     position: relative;
     overflow: hidden;
     border-radius: 9px;
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+
+    transition:
+        opacity 800ms ease,
+        transform 1000ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-section__image img {
@@ -229,12 +237,10 @@ body {
     aspect-ratio: 1;
     border-radius: 50%;
 
-    background: radial-gradient(
-        circle at 30% 30%,
-        #ffffff,
-        #c4b5fd 35%,
-        #7c3aed 75%
-    );
+    background: radial-gradient(circle at 30% 30%,
+            #ffffff,
+            #c4b5fd 35%,
+            #7c3aed 75%);
 
     box-shadow: 0 0 20px rgb(167 139 250 / 55%);
 
@@ -331,6 +337,12 @@ body {
     padding: 12rem;
 }
 
+.feature-section__text {
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+}
+
 .feature__badge {
     font-size: 1.8rem;
     text-align: center;
@@ -350,7 +362,7 @@ body {
     margin-top: 9.6rem;
 }
 
-.feature-section__content {
+.feature-section__card {
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -361,10 +373,16 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
     background-color: #ffffff;
     flex: 1 1 30rem;
+    opacity: 0;
+    transform: translateY(25px) scale(0.98);
+
+    transition:
+        opacity 0.6s ease-out,
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     transition: transform .3s ease;
 }
 
-.feature-section__content:hover {
+.feature-section__card:hover {
     transform: translateY(-1rem);
 }
 
@@ -415,7 +433,7 @@ body {
     font-size: 1.8rem;
 }
 
-.feature-section__content--description {
+.feature-section__card--description {
     font-size: 1.6rem;
     line-height: 3.2rem;
 }
@@ -498,7 +516,7 @@ body {
 
 .project-section__actions--badge:nth-child(1) {
     background-color: #edf2ff;
-    color:var(--color-primary);
+    color: var(--color-primary);
     font-weight: 600;
     font-size: 1.2rem;
 }
@@ -530,7 +548,7 @@ body {
 
 .project-section__view--link:link,
 .project-section__view--link:visited {
-    color:var(--color-primary);
+    color: var(--color-primary);
     text-decoration: none;
     display: flex;
     gap: 1rem;
@@ -562,7 +580,7 @@ body {
 .about-section__content--badge {
     font-size: 1.6rem;
     text-transform: uppercase;
-    color:var(--color-primary);
+    color: var(--color-primary);
     font-weight: 600;
 }
 
@@ -580,7 +598,7 @@ body {
     width: 20rem;
     padding: 1rem;
     border-radius: 9px;
-    background-color:var(--color-primary);
+    background-color: var(--color-primary);
     color: #ffffff;
     border: none;
 }
@@ -647,7 +665,7 @@ body {
 
 .btn--free:link,
 .btn--free:visited {
-    color:var(--color-primary);
+    color: var(--color-primary);
     text-decoration: none;
     display: flex;
     gap: 1rem;
@@ -754,17 +772,27 @@ body {
     width: 100%;
     height: 4rem;
 }
-.hero-section__content > *{
+
+.hero-section__content>* {
     opacity: 0;
     filter: blur(4px);
     transform: translateY(24px);
 }
-.hero-section__content > .animate-up {
-     animation: heroReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+.animate-up {
+    animation: heroReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.zoom-out {
+    transform: scale(1) translateY(0);
+    opacity: 1;
 }
 
 
-@keyframes heroReveal{
+
+
+
+@keyframes heroReveal {
     from {
         opacity: 0;
         filter: blur(4px);
