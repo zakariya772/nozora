@@ -86,8 +86,8 @@ const observeFeatureCard = new IntersectionObserver(entries=>{
     }
 },{
     root:null,
-    threshold:0,
-    rootMargin:`-${navHeight}px`    
+    threshold:0.1,
+    rootMargin:`-${navHeight}px 0px 0px 0px`    
 })
 
 observeFeatureCard.observe(featureSectionContainer)
