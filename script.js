@@ -85,7 +85,7 @@ const observeFeatureCard = new IntersectionObserver(entries=>{
     }
 },{
     root:null,
-    threshold:.5,
+    threshold:0,
     rootMargin:`-${navHeight}px`    
 })
 
