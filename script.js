@@ -70,7 +70,6 @@ const observeHeroSection = new IntersectionObserver((entries)=>{
 
 observeHeroSection.observe(heroSectionContent)
 
-
 const observeFeatureText = new IntersectionObserver(entries=>{
     const entry = entries[0]
     if (entry.isIntersecting){

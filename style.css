@@ -368,7 +368,6 @@ body {
     background-color: #ffffff;
     flex: 1 1 30rem;
     opacity: 0;
-    filter: blur(4px);
     transform: translateY(25px) scale(0.98);
 
     transition:
@@ -782,7 +781,6 @@ body {
     transform: scale(1) translateY(0);
     opacity: 1;
 }
-
 
 
 
