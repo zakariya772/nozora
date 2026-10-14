@@ -804,11 +804,20 @@ body {
     transform: translateY(24px);
 }
 
-.hero-section__content>*,.community-section>*,.feature-section__text>*,
-.project-section__text>* {
+.hero-section__content>*,.community-section >*,.feature-section__text>*,
+.project-section__text>*,.section-footer__container > * {
     opacity: 0;
     filter: blur(4px);
     transform: translateY(24px);
+}
+.section-footer > *{
+    opacity: 0;
+    transform: translateY(25px) scale(0.98);
+
+    transition:
+        opacity 0.6s ease-out,
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform .3s ease;
 }
 
 .animate-up {

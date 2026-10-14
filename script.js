@@ -14,7 +14,8 @@ const aboutSectionContent = document.querySelector(".about-section__content")
 const aboutSectionStats = document.querySelector(".about-section__stats")
 const lazyImages = document.querySelectorAll(".lazy-image")
 const comunitySection = document.querySelector(".community-section")
-
+const footerSection = document.querySelector(".section-footer")
+const footerSectionContainer = document.querySelectorAll(".section-footer__container")
 hambugger.addEventListener("click", function (e) {
     e.currentTarget.classList.toggle("active");
     navList.classList.toggle("nav-open")
@@ -79,6 +80,7 @@ observeSectionText.observe(projectSectionText)
 observeSectionText.observe(comunitySection)
 
 
+
 const observeAboutContent = new IntersectionObserver((entries)=>{
     const entry = entries[0]
     if (entry.isIntersecting){
@@ -134,8 +136,24 @@ const observeFeatureCard = new IntersectionObserver(entries=>{
     threshold:0.15,
     rootMargin:`-${navHeight}px 0px`    
 })
-
+observeFeatureCard.observe(footerSection)
 observeFeatureCard.observe(featureSectionContainer)
+
+const observeFooterContainer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if (!entry.isIntersecting) return
+        entry.target.querySelectorAll(":Scope > *").forEach((element,index)=>{
+            setTimeout(()=>{
+                element.classList.add("animate-up")
+            },index * 150)
+        })
+          observeFooterContainer.unobserve(entry.target)
+    })
+})
+
+footerSectionContainer.forEach((element)=>{
+    observeFooterContainer.observe(element)
+})
 
 
 
