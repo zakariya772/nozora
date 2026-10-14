@@ -82,6 +82,7 @@ const observeFeatureCard = new IntersectionObserver(entries=>{
                 element.classList.add("zoom-out")
             },index * 150)
         })
+        observeFeatureCard.unobserve(entry.target)
     }
 },{
     root:null,
